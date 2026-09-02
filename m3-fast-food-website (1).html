@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M3 Fast Food BBQ & Limca Bar</title>
+<style>
+:root{--gold:#d4af37;--gold2:#f5d76e;--black:#090909;--dark:#141414;--card:#1b1b1b;--text:#f5f1e8;--muted:#b9b2a5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--black);color:var(--text)}
+a{text-decoration:none;color:inherit}
+header{position:sticky;top:0;z-index:50;background:rgba(9,9,9,.96);border-bottom:1px solid #2e2818}
+.nav{max-width:1150px;margin:auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:900;font-size:22px;color:var(--gold)}.logo small{display:block;color:#fff;font-size:10px;letter-spacing:2px}
+nav{display:flex;gap:18px;font-size:14px;color:#ddd}nav a:hover{color:var(--gold)}
+.hero{min-height:560px;display:flex;align-items:center;text-align:center;padding:70px 20px;background:radial-gradient(circle at top,#352b0c 0%,#14110a 30%,#090909 70%)}
+.hero-inner{max-width:850px;margin:auto}.badge{display:inline-block;border:1px solid var(--gold);color:var(--gold2);padding:8px 14px;border-radius:30px;font-size:13px}
+h1{font-size:clamp(42px,8vw,82px);margin:20px 0 10px;color:var(--gold);line-height:1}.hero p{font-size:18px;color:var(--muted);max-width:620px;margin:18px auto 30px}
+.btn{display:inline-block;background:var(--gold);color:#111;padding:15px 24px;border-radius:8px;font-weight:bold;margin:6px;cursor:pointer;border:none}.btn.outline{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+section{max-width:1150px;margin:auto;padding:70px 20px}.title{text-align:center;margin-bottom:35px}.title h2{font-size:34px;margin:0;color:var(--gold)}.title p{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:linear-gradient(145deg,#1d1d1d,#111);border:1px solid #302a1c;border-radius:14px;padding:20px;box-shadow:0 10px 25px rgba(0,0,0,.25)}
+.card h3{margin:0 0 8px}.price{color:var(--gold);font-size:21px;font-weight:bold;margin:10px 0}.card p{color:var(--muted);font-size:14px;line-height:1.5}.add{width:100%;margin-top:10px}
+.menu-tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-bottom:25px}.tab{background:#191919;color:#ddd;border:1px solid #333;padding:10px 15px;border-radius:20px;cursor:pointer}.tab.active{border-color:var(--gold);color:var(--gold)}
+.hidden{display:none!important}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}.info .card{text-align:center}
+footer{text-align:center;padding:35px 15px;border-top:1px solid #2a2418;color:var(--muted)}
+.cart-fab{position:fixed;right:20px;bottom:20px;background:var(--gold);color:#111;border:none;border-radius:50px;padding:15px 20px;font-weight:bold;z-index:100;cursor:pointer}
+.count{background:#111;color:#fff;border-radius:50%;padding:2px 7px;margin-left:5px}
+.cart{position:fixed;right:-430px;top:0;width:min(410px,100%);height:100vh;background:#121212;border-left:1px solid #40371d;z-index:200;padding:20px;transition:.3s;overflow:auto}.cart.open{right:0}.cart h2{color:var(--gold)}.cart-item{display:flex;justify-content:space-between;gap:10px;padding:14px 0;border-bottom:1px solid #292929}.qty button{background:#292929;color:#fff;border:0;border-radius:4px;padding:4px 9px;cursor:pointer}.total{font-size:22px;color:var(--gold);font-weight:bold;margin:20px 0}.close{float:right;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
+.checkout input,.checkout textarea{width:100%;padding:12px;margin:7px 0;background:#1e1e1e;border:1px solid #444;color:#fff;border-radius:7px}
+.notice{background:#201b0c;border:1px solid #59491a;color:#e9d88b;padding:12px;border-radius:8px;font-size:13px;margin-top:15px}
+@media(max-width:700px){nav{display:none}.hero{min-height:500px}.hero p{font-size:16px}}
+</style>
+</head>
+<body>
+<header><div class="nav">
+<div class="logo">M3 FAST FOOD<small>BBQ • FAST FOOD • LIMCA BAR</small></div>
+<nav><a href="#home">Home</a><a href="#deals">Deals</a><a href="#menu">Menu</a><a href="#limca">Limca</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<main>
+<section class="hero" id="home"><div class="hero-inner">
+<div class="badge">📍 Korangi 2½ Food Street, Karachi</div>
+<h1>M3 FAST FOOD</h1>
+<h2 style="letter-spacing:3px;margin:0;color:#fff">BBQ & LIMCA BAR</h2>
+<p>Premium taste, delicious food and refreshing Limca flavours. Order your favourite food online!</p>
+<a class="btn" href="#menu">🍔 ORDER NOW</a><a class="btn outline" href="https://wa.me/923112442578">💬 WhatsApp</a>
+</div></section>
+
+<section id="deals"><div class="title"><h2>🔥 Special Deals</h2><p>Best combinations for every appetite</p></div>
+<div class="grid" id="dealsGrid"></div></section>
+
+<section id="menu"><div class="title"><h2>🍔 Our Menu</h2><p>Select items and add them to your cart</p></div>
+<div class="menu-tabs">
+<button class="tab active" onclick="showCat('fast',this)">Fast Food</button>
+<button class="tab" onclick="showCat('pizza',this)">Pizza & Pasta</button>
+<button class="tab" onclick="showCat('bbq',this)">BBQ</button>
+</div>
+<div class="grid category" id="fast"></div>
+<div class="grid category hidden" id="pizza"></div>
+<div class="grid category hidden" id="bbq"></div>
+</section>
+
+<section id="limca"><div class="title"><h2>🥤 M3 Limca Flavours</h2><p>Regular Rs. 80 • Big Rs. 120</p></div>
+<div class="grid" id="limcaGrid"></div></section>
+
+<section id="contact"><div class="title"><h2>📍 Visit M3 Fast Food</h2></div>
+<div class="info">
+<div class="card"><h3>📍 Location</h3><p>Korangi 2½ Food Street<br>Karachi, Pakistan</p></div>
+<div class="card"><h3>🕕 Opening Hours</h3><p>Every Day<br><b>6:00 PM – 2:00 AM</b></p></div>
+<div class="card"><h3>📱 Order on WhatsApp</h3><p><b>03112442578</b></p><a class="btn" href="https://wa.me/923112442578">Chat Now</a></div>
+</div></section>
+</main>
+
+<button class="cart-fab" onclick="toggleCart()">🛒 Cart <span class="count" id="count">0</span></button>
+<aside class="cart" id="cart"><button class="close" onclick="toggleCart()">×</button><h2>Your Order 🛒</h2><div id="cartItems"></div><div class="total">Total: Rs. <span id="total">0</span></div>
+<div class="checkout">
+<input id="customerName" placeholder="Your Name">
+<input id="customerPhone" placeholder="Phone Number">
+<textarea id="customerAddress" rows="3" placeholder="Delivery Address"></textarea>
+<button class="btn" style="width:100%" onclick="checkout()">Place Order on WhatsApp</button>
+</div><div class="notice">Delivery charges can be confirmed with the customer on WhatsApp.</div></aside>
+
+<footer>© 2026 M3 Fast Food BBQ & Limca Bar • Korangi 2½ Food Street, Karachi</footer>
+
+<script>
+const deals=[
+["Deal 1",399,"1 Zinger Burger + Fries + 300ml Coldrink"],
+["Deal 2",399,"Club Sandwich + Fries + 300ml Coldrink"],
+["Deal 3",899,"Zinger Burger + Zinger Roll + Club Sandwich + 300ml Coldrink"],
+["Deal 4",999,"Chicken Breast + Club Sandwich + Zinger Roll + Fries + 300ml Coldrink"],
+["Deal 5",2749,"2 Zinger Burgers + 2 Chicken Burgers + Zinger Roll + Club Sandwich + Chicken Breast + 1L Coldrink"],
+["Deal 6",749,"Zinger Burger + Club Sandwich + Fries + 300ml Coldrink"],
+["Deal 7",899,"Zinger Burger + Small Pizza + Fries + 300ml Coldrink"]
+];
+const categories={
+fast:[["Zinger Burger",0,"Price to be confirmed"],["Chicken Burger",0,"Price to be confirmed"],["Zinger Roll",0,"Price to be confirmed"],["Club Sandwich",0,"Price to be confirmed"],["Fries",0,"Price to be confirmed"]],
+pizza:[["Cheese Pasta Small",400,"Creamy cheese pasta"],["Cheese Pasta Large",700,"Large serving"],["Pizza",0,"Price to be confirmed"]],
+bbq:[["BBQ Items",0,"Add your current BBQ prices from your menu"],["Chicken Breast",0,"Available in Deal 4 and Deal 5"]]
+};
+const flavours=["Pineapple","Adrak","Lemon","Peach","Lichi","Blue Berry","Orange","Falsa","Apple","Sting","Limopani","Pakola","Coca Cola","Amrood","Chilli Milli","Zeera","Imli","Red Apple","Mango","Alo Bukhara","Mint"];
+let cart=[];
+function card(name,price,desc){return `<div class="card"><h3>${name}</h3><p>${desc}</p><div class="price">${price?`Rs. ${price}`:"Ask for Price"}</div><button class="btn add" onclick="add('${name.replace(/'/g,"\\'")}',${price})">${price?"Add to Cart":"WhatsApp for Price"}</button></div>`}
+document.getElementById("dealsGrid").innerHTML=deals.map(x=>card(...x)).join("");
+for(const [id,items] of Object.entries(categories))document.getElementById(id).innerHTML=items.map(x=>card(...x)).join("");
+document.getElementById("limcaGrid").innerHTML=flavours.map(f=>`<div class="card"><h3>${f} Limca</h3><p>Choose your size when ordering</p><button class="btn add" onclick="add('${f} Limca Regular',80)">Regular Rs.80</button><button class="btn outline add" onclick="add('${f} Limca Big',120)">Big Rs.120</button></div>`).join("")+
+card("Ice Cream Soda Regular",150,"Special flavour")+card("Ice Cream Soda Big",200,"Special flavour")+card("Choklet Regular",150,"Special flavour")+card("Choklet Big",200,"Special flavour");
+
+function showCat(id,el){document.querySelectorAll('.category').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));el.classList.add('active')}
+function add(name,price){if(!price){window.open('https://wa.me/923112442578?text='+encodeURIComponent('Assalamualaikum! Mujhe '+name+' ka current price chahiye.'),'_blank');return}let item=cart.find(x=>x.name===name);if(item)item.qty++;else cart.push({name,price,qty:1});renderCart()}
+function renderCart(){document.getElementById('count').textContent=cart.reduce((a,x)=>a+x.qty,0);let total=cart.reduce((a,x)=>a+x.price*x.qty,0);document.getElementById('total').textContent=total;document.getElementById('cartItems').innerHTML=cart.length?cart.map((x,i)=>`<div class="cart-item"><div><b>${x.name}</b><br>Rs. ${x.price} × ${x.qty}</div><div class="qty"><button onclick="change(${i},-1)">−</button> <button onclick="change(${i},1)">+</button></div></div>`).join(""):"<p>Your cart is empty.</p>"}
+function change(i,d){cart[i].qty+=d;if(cart[i].qty<=0)cart.splice(i,1);renderCart()}
+function toggleCart(){document.getElementById('cart').classList.toggle('open')}
+function checkout(){if(!cart.length)return alert('Please add items first.');let name=document.getElementById('customerName').value||'Not provided';let phone=document.getElementById('customerPhone').value||'Not provided';let address=document.getElementById('customerAddress').value||'Not provided';let total=cart.reduce((a,x)=>a+x.price*x.qty,0);let items=cart.map(x=>`• ${x.name} x${x.qty} = Rs. ${x.price*x.qty}`).join('\n');let msg=`🍔 *NEW ORDER - M3 FAST FOOD*%0A%0A${items}%0A%0A*Total: Rs. ${total}*%0A%0A👤 Name: ${name}%0A📱 Phone: ${phone}%0A📍 Address: ${address}`;window.open('https://wa.me/923112442578?text='+encodeURIComponent(msg),'_blank')}
+</script>
+</body></html>
